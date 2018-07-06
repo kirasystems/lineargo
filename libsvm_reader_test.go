@@ -1,7 +1,7 @@
 package lineargo_test
 
 import (
-	. "github.com/lazywei/lineargo"
+	. "github.com/kirasystems/lineargo"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
