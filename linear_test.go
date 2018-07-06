@@ -1,9 +1,10 @@
 package lineargo_test
 
 import (
+	"io/ioutil"
 	"os"
 
-	. "github.com/lazywei/lineargo"
+	. "github.com/kirasystems/lineargo"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -37,6 +38,10 @@ var _ = Describe("LinearGo", func() {
 
 		It("should load a trained model", func() {
 			Expect(func() { LoadModel("test_fixture/heart_scale.model") }).NotTo(Panic())
+		})
+		It("should load a trained model", func() {
+			b, _ := ioutil.ReadFile("test_fixture/heart_scale.model")
+			Expect(func() { LoadModelString(string(b)) }).NotTo(Panic())
 		})
 	})
 

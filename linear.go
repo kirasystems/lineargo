@@ -164,3 +164,15 @@ func LoadModel(filename string) *Model {
 		cModel: model,
 	}
 }
+
+// LoadModelString loads a liblinear model from a string.
+func LoadModelString(modelData string) *Model {
+	model := C.load_model_string(C.CString(modelData))
+	if model == nil {
+		errStr := fmt.Sprintf("Can't load model")
+		panic(errors.New(errStr))
+	}
+	return &Model{
+		cModel: model,
+	}
+}
