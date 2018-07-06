@@ -67,7 +67,7 @@ func ReadLibsvm(filepath string, oneBased bool) (X, y *mat64.Dense) {
 	for i, data := range dataList {
 		label, err := strconv.Atoi(data[0])
 		if err != nil {
-			fmt.Println("Got error when trying to set label for %v-th sample", i)
+			fmt.Printf("Got error when trying to set label for %v-th sample", i)
 			panic(err)
 		}
 		y.Set(i, 0, float64(label))
